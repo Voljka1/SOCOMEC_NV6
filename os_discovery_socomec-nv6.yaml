@@ -28,10 +28,10 @@ modules:
                     descr: 'Input #{{ $index }} Voltage'
                     index: 'upsInputVoltage.{{ $index }}'
                     divisor: 10
-                    low_limit: 200
-                    low_warn_limit: 210
-                    warn_limit: 240
-                    high_limit: 245
+                    low_limit: 207
+                    low_warn_limit: 215
+                    warn_limit: 245
+                    high_limit: 253
                 -
                     oid: SOCOMECUPS6-MIB::upsOutputTable
                     value: SOCOMECUPS6-MIB::upsOutputVoltage
