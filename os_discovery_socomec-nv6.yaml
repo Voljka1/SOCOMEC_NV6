@@ -1,9 +1,9 @@
 modules:
     os:
         hardware: SOCOMECUPS6-MIB::upsIdentModel.0
-        version:  SOCOMECUPS6-MIB::upsIdentAgentSoftwareVersion.0
+        version: SOCOMECUPS6-MIB::upsIdentAgentSoftwareVersion.0
         version_regex: '/v(?<version>[0-9]+.[0-9]+)/'
-        serial:   SOCOMECUPS6-MIB::upsIdentUpsSerialNumber.0
+        serial: SOCOMECUPS6-MIB::upsIdentUpsSerialNumber.0
     sensors:
         voltage:
             data:
@@ -15,25 +15,25 @@ modules:
                     index: 'upsBatteryVoltage.{{ $index }}'
                     divisor: 10
                 -
-                    oid: SOCOMECUPS6-MIB::upsBypass
+                    oid: SOCOMECUPS6-MIB::upsBypassTable
                     value: SOCOMECUPS6-MIB::upsBypassVoltage
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.5.3.1.2.{{ $index }}'
                     descr: 'Bypass #{{ $index }} Voltage'
                     index: 'upsBypassVoltage.{{ $index }}'
                     divisor: 10
                 -
-                    oid: SOCOMECUPS6-MIB::upsInput
+                    oid: SOCOMECUPS6-MIB::upsInputTable
                     value: SOCOMECUPS6-MIB::upsInputVoltage
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.3.3.1.2.{{ $index }}'
                     descr: 'Input #{{ $index }} Voltage'
                     index: 'upsInputVoltage.{{ $index }}'
                     divisor: 10
-                    low_limit: 200
-                    low_warn_limit: 210
-                    warn_limit: 235
-                    high_limit: 240
+                    low_limit: 207
+                    low_warn_limit: 215
+                    warn_limit: 245
+                    high_limit: 253
                 -
-                    oid: SOCOMECUPS6-MIB::upsOutput
+                    oid: SOCOMECUPS6-MIB::upsOutputTable
                     value: SOCOMECUPS6-MIB::upsOutputVoltage
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.4.4.1.2.{{ $index }}'
                     descr: 'Output #{{ $index }} Voltage'
@@ -41,9 +41,8 @@ modules:
                     divisor: 10
         current:
             data:
-                
                 -
-                    oid: SOCOMECUPS6-MIB::upsBypass
+                    oid: SOCOMECUPS6-MIB::upsBypassTable
                     value: SOCOMECUPS6-MIB::upsBypassCurrent
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.5.3.1.3.{{ $index }}'
                     descr: 'Bypass #{{ $index }} Current'
@@ -55,7 +54,7 @@ modules:
                             op: '>'
                             value: 32767
                 -
-                    oid: SOCOMECUPS6-MIB::upsInput
+                    oid: SOCOMECUPS6-MIB::upsInputTable
                     value: SOCOMECUPS6-MIB::upsInputCurrent
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.3.3.1.3.{{ $index }}'
                     descr: 'Input #{{ $index }} Current'
@@ -67,7 +66,7 @@ modules:
                             op: '>'
                             value: 32767
                 -
-                    oid: SOCOMECUPS6-MIB::upsOutput
+                    oid: SOCOMECUPS6-MIB::upsOutputTable
                     value: SOCOMECUPS6-MIB::upsOutputCurrent
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.4.4.1.3.{{ $index }}'
                     descr: 'Output #{{ $index }} Current'
@@ -81,7 +80,7 @@ modules:
         load:
             data:
                 -
-                    oid: SOCOMECUPS6-MIB::upsOutput
+                    oid: SOCOMECUPS6-MIB::upsOutputTable
                     value: SOCOMECUPS6-MIB::upsOutputPercentLoad
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.4.4.1.4.{{ $index }}'
                     descr: 'Output #{{ $index }} Load'
@@ -132,7 +131,7 @@ modules:
                 -
                     oid: SOCOMECUPS6-MIB::emdStatus
                     value: SOCOMECUPS6-MIB::emdStatusTemperature
-                    num_oid:  '.1.3.6.1.4.1.4555.1.1.1.1.11.1.{{ $index }}'
+                    num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.11.1.{{ $index }}'
                     descr: 'External EMD Temperature'
                     index: 'emdStatusTemperature.{{ $index }}'
                     divisor: 10
@@ -145,7 +144,7 @@ modules:
                 -
                     oid: SOCOMECUPS6-MIB::emdStatus
                     value: SOCOMECUPS6-MIB::emdStatusHumidity
-                    num_oid:  '.1.3.6.1.4.1.4555.1.1.1.1.11.2.{{ $index }}'
+                    num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.11.2.{{ $index }}'
                     descr: 'External EMD Humidity'
                     index: 'emdStatusHumidity.{{ $index }}'
                     divisor: 10
@@ -260,7 +259,7 @@ modules:
                     oid: SOCOMECUPS6-MIB::upsAlarm
                     value: SOCOMECUPS6-MIB::upsAlarmGeneralFault
                     num_oid: '.1.3.6.1.4.1.4555.1.1.1.1.6.3.18.{{ $index }}'
-                    descr: ' A general fault in the UPS has been detected.'
+                    descr: 'A general fault in the UPS has been detected.'
                     index: 'upsAlarmGeneralFault.{{ $index }}'
                     group: Alarm
                     state_name: upsAlarmGeneralFault
